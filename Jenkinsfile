@@ -4,6 +4,7 @@ pipeline {
 	stages{
 		stage('Build'){
 			steps{
+				sh 'sudo usermod -a -G docker jenkins'
 				sh 'node --version'
 				echo "Hello World- Build"
 			}
