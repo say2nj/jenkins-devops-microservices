@@ -1,12 +1,15 @@
 pipeline {
-
-	agent { docker { image 'node:13.8'} }
+	agent any
+	// agent { docker { image 'node:13.8'} }
 	stages{
 		stage('Build'){
 			steps{
-				sh 'sudo usermod -a -G docker jenkins'
-				sh 'node --version'
+				// sh 'sudo usermod -a -G docker jenkins'
+				// sh 'node --version'
 				echo "Hello World- Build"
+				echo "Build Number: $env.BUILD_NUMBER"
+				echo "Build ID: $env.BUILD_ID"
+				echo "Job Name: $env.JOB_NAME"
 			}
 		}
 		
