@@ -11,12 +11,14 @@ pipeline {
 			steps{
 				// sh 'sudo usermod -a -G docker jenkins'
 				// sh 'node --version'
+				docker.withRegstry('','dockerhub'){
 				sh 'mvn --version'
 				sh 'docker --version'
 				echo "Hello World- Build"
 				echo "Build Number: $env.BUILD_NUMBER"
 				echo "Build ID: $env.BUILD_ID"
 				echo "Job Name: $env.JOB_NAME"
+				}
 			}
 		}
 		
